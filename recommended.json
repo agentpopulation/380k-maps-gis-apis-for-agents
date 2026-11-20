@@ -1,0 +1,858 @@
+{
+  "pack": "maps-gis-api-endpoints",
+  "title": "Maps and GIS API endpoints",
+  "snapshot": "2026-11-15",
+  "tested": {
+    "min": "2026-11-10",
+    "max": "2026-11-15",
+    "text": "10–15 Nov 2026"
+  },
+  "note": "On the date in last_tested (IST), one GET to the URL, sent with no key, returned HTTP 2xx and a non-empty data body. HTML pages and empty results did not pass. The format column records what came back. This is a test result for that date, not a promise that the URL answers today. Licences, terms, rate limits, accuracy and freshness were not reviewed. Endpoints are URLs, not separate APIs; many share one service.",
+  "licence": "CC BY 4.0: credit AgentPopulation and link https://agentpopulation.com",
+  "focus": "(title or subcategory matches /boundar|border|address|parcel|cadast|zoning|land use|landuse|land cover|\\bplan(s|o|ning)?\\b|bebauungsplan|flächennutzungsplan|map|karte|carte|mappa|contour|elevation|terrain|topograph|orthophoto|aerial|district|municipal|\\bwards?\\b|census tract|county|region|postal|post code|zip code|place name|gazetteer|street|road|trail|\\bparks?\\b|building|footprint|geolog|soil|vegetation|wetland|watershed|coast|χάρτ|όρι|χρήσ|γης|οικοδομ|γεωτεμ|ρυμοτομ|mpzp|inspire|geoboundaries|geonames|OGC W[MF]S|ArcGIS feature layer|KML|GEOJSON|GML/i OR url matches /geoserver|[?&]service=w[mf]s|/wfs|/wms|/ows[/?]|/ogc/|featureserver|mapserver/i) AND NOT ((title matches /compan(y|ies)|employ|jobs|illness|enterprise statistics|corporate positions|contracts?\\b|patent|deaths|unemploy|scholarship/i OR tags has statistics) AND NOT subcategory matches /OGC|ArcGIS|boundar|spatial|GML|KML|GEOJSON/i) AND NOT url matches ///(services[0-9]*(-[a-z0-9]+)?|utility)\\.arcgis\\.com//i",
+  "buckets": [
+    {
+      "id": "agent",
+      "name": "Agent tools",
+      "title": "Boundary, parcel, zoning and address layers an agent can query",
+      "filter": "tags has agent-ready AND (host is www.geoboundaries.org OR title matches /boundar|address|parcel|cadast|zoning|zip code|postal|land use|landuse|district|\\bwards?\\b|municipal/i)",
+      "endpoints": 70229,
+      "notes": [
+        "64864 of these are map-layer queries that asked for a few records (resultRecordCount); add a geometry or a where clause to ask about one place, and page through for the whole layer."
+      ],
+      "criteria": "Services in this pack with the most endpoints that match this bucket and are tagged agent-ready (no key sent in the test call, JSON body, passed a data call). Ties go to the service with more country codes, then by name. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Sample preference in this bucket: NOT url matches ///(services[0-9]*(-[a-z0-9]+)?|utility)\\.arcgis\\.com//i AND NOT title matches /descontinuado|deprecated|discontinued/i. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "ArcGIS Online: Non",
+          "display": "ArcGIS Online: Non",
+          "host": "open-geography-portalx-ons.hub.arcgis.com",
+          "endpoints_in_bucket": 1243,
+          "endpoints_in_pack": 3449,
+          "country_codes": [
+            "GB"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://open-geography-portalx-ons.hub.arcgis.com/api/download/v1/items/00a5aa3aa5a64183bd88c848ab9858d0/geojson?layers=0",
+          "sample_title": "International Territorial Level 3 (January 2021) Boundaries UK BFE (V4) - GeoJSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Emsifa",
+          "display": "Emsifa",
+          "host": "www.emsifa.com",
+          "endpoints_in_bucket": 961,
+          "endpoints_in_pack": 1000,
+          "country_codes": [
+            "ID"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://www.emsifa.com/api-wilayah-indonesia/api/district/1101010.json",
+          "sample_title": "emsifa API Wilayah Indonesia (BPS/Kemendagri region codes, static JSON): District",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Geoboundaries",
+          "display": "Geoboundaries",
+          "host": "www.geoboundaries.org",
+          "endpoints_in_bucket": 897,
+          "endpoints_in_pack": 897,
+          "country_codes": [
+            "AD",
+            "AF",
+            "AG",
+            "AI",
+            "AO",
+            "AQ",
+            "AS",
+            "AW",
+            "AZ",
+            "BA",
+            "BB",
+            "BD",
+            "BF",
+            "BG",
+            "BI",
+            "BJ",
+            "BL",
+            "BM",
+            "BN",
+            "BO",
+            "BQ",
+            "BS",
+            "BT",
+            "BW",
+            "BY",
+            "BZ",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CK",
+            "CM",
+            "CR",
+            "CU",
+            "CV",
+            "CW",
+            "CY",
+            "DJ",
+            "DM",
+            "DZ",
+            "EE",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "FJ",
+            "FK",
+            "FM",
+            "FO",
+            "GA",
+            "GD",
+            "GE",
+            "GF",
+            "GG",
+            "GH",
+            "GI",
+            "GL",
+            "GM",
+            "GN",
+            "GP",
+            "GQ",
+            "GT",
+            "GU",
+            "GW",
+            "GY",
+            "HN",
+            "HT",
+            "IM",
+            "IQ",
+            "IR",
+            "JM",
+            "JO",
+            "KE",
+            "KH",
+            "KI",
+            "KM",
+            "KN",
+            "KP",
+            "KW",
+            "KY",
+            "KZ",
+            "LA",
+            "LB",
+            "LC",
+            "LI",
+            "LK",
+            "LR",
+            "LS",
+            "LT",
+            "LU",
+            "LY",
+            "MA",
+            "MC",
+            "MD",
+            "ME",
+            "MG",
+            "MH",
+            "MK",
+            "ML",
+            "MM",
+            "MN",
+            "MP",
+            "MQ",
+            "MR",
+            "MS",
+            "MT",
+            "MU",
+            "MV",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NG",
+            "NI",
+            "NP",
+            "NR",
+            "NU",
+            "OM",
+            "PE",
+            "PF",
+            "PG",
+            "PH",
+            "PN",
+            "PR",
+            "PS",
+            "PW",
+            "PY",
+            "QA",
+            "RE",
+            "RS",
+            "RU",
+            "RW",
+            "SA",
+            "SB",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SI",
+            "SL",
+            "SM",
+            "SO",
+            "SR",
+            "SS",
+            "ST",
+            "SV",
+            "SX",
+            "SY",
+            "SZ",
+            "TC",
+            "TD",
+            "TJ",
+            "TK",
+            "TL",
+            "TM",
+            "TN",
+            "TO",
+            "TT",
+            "TV",
+            "TZ",
+            "UG",
+            "UZ",
+            "VA",
+            "VC",
+            "VE",
+            "VG",
+            "VI",
+            "VU",
+            "WF",
+            "WS",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://www.geoboundaries.org/api/current/gbAuthoritative/BDI/ADM0/",
+          "sample_title": "geoBoundaries gbAuthoritative ADM0 boundaries: Burundi",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Utahcounty",
+          "display": "Utahcounty",
+          "host": "maps200.utahcounty.gov",
+          "endpoints_in_bucket": 402,
+          "endpoints_in_pack": 858,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://maps200.utahcounty.gov/arcgis/rest/services/Assessor/Assr_Cities/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=10&f=json",
+          "sample_title": "maps200.utahcounty.gov: Assessor/Assr_Cities / MunicipalBoundary",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Cityofirvine",
+          "display": "Cityofirvine",
+          "host": "gis.cityofirvine.org",
+          "endpoints_in_bucket": 396,
+          "endpoints_in_pack": 440,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://gis.cityofirvine.org/arcgis/rest/services/ADT/MapServer/0/query?where=1%3D1&outFields=*&resultRecordCount=10&f=json",
+          "sample_title": "gis.cityofirvine.org: ADT / City Boundary",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Yumacountyaz",
+          "display": "Yumacountyaz",
+          "host": "arcgis.yumacountyaz.gov",
+          "endpoints_in_bucket": 358,
+          "endpoints_in_pack": 413,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://arcgis.yumacountyaz.gov/webgis/rest/services/2023_Tax_Deed_Parcels/MapServer/2/query?where=1%3D1&outFields=*&resultRecordCount=10&f=json",
+          "sample_title": "arcgis.yumacountyaz.gov: 2023_Tax_Deed_Parcels / sde.SDE.Interstate_HWY",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Esri (ArcGIS Online)",
+          "display": "Esri (ArcGIS Online)",
+          "host": "p3eplmys2rvchkjx.svcs.arcgis.com",
+          "endpoints_in_bucket": 320,
+          "endpoints_in_pack": 650,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://p3eplmys2rvchkjx.svcs.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_10_14_Children_in_Grandparent_Households_Boundaries/FeatureServer/0/query?where=1%3D1&outFields=*&resultRecordCount=10&f=json",
+          "sample_title": "p3eplmys2rvchkjx.svcs.arcgis.com: ACS_10_14_Children_in_Grandparent_Households_Boundaries / State",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "ArcGIS Online publisher",
+          "display": "ArcGIS Online publisher",
+          "host": "lkfyxb9zdq7vaoam.svcsdev.arcgis.com",
+          "endpoints_in_bucket": 276,
+          "endpoints_in_pack": 3629,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://lkfyxb9zdq7vaoam.svcsdev.arcgis.com/LkFyxb9zDq7vAOAm/arcgis/rest/services/3DSymbols2DLayers_WFL1/FeatureServer/2/query?where=1%3D1&outFields=*&resultRecordCount=10&f=json",
+          "sample_title": "lkfyxb9zdq7vaoam.svcsdev.arcgis.com: 3DSymbols2DLayers_WFL1 / National_Park_Boundaries",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        }
+      ]
+    },
+    {
+      "id": "app",
+      "name": "App features",
+      "title": "Map services and vector files to draw: WMS, WFS, GeoJSON and KML",
+      "filter": "format is geojson OR subcategory matches /OGC W[MF]S|KML|GEOJSON|GML/i",
+      "endpoints": 98806,
+      "notes": [
+        "35373 of these are GetCapabilities requests: they list the layers of a WMS or WFS service; ask GetMap or GetFeature for the map or the features."
+      ],
+      "criteria": "Services in this pack with the most endpoints that match this bucket and passed a data call. Ties go to the service with more country codes, then by name. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Sample preference in this bucket: NOT url matches /[?&]request=getcapabilities/i. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "Komm",
+          "display": "Komm",
+          "host": "geodienste.komm.one",
+          "endpoints_in_bucket": 21890,
+          "endpoints_in_pack": 21892,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "xml",
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://geodienste.komm.one/ows/services/org.104.09cb9500-5f52-4d4f-a58e-10b0efe1cfc6_wfs/org.104.21879498-2b4a-43cc-a6e8-b5bcc930c558?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=plu:OfficialDocumentation&COUNT=10&OUTPUTFORMAT=application%2Fgeo%2Bjson",
+          "sample_title": "Gemeinde Großbettlingen (geodienste.komm.one): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "daten.bw - Das Datenportal für Baden-Wür",
+          "display": "daten.bw - Das Datenportal für Baden-Wür",
+          "host": "haleconnect.com",
+          "endpoints_in_bucket": 6094,
+          "endpoints_in_pack": 6192,
+          "country_codes": [
+            "AT",
+            "DE",
+            "DK"
+          ],
+          "formats": [
+            "xml",
+            "geojson"
+          ],
+          "formats_in_pack": 2,
+          "sample_url": "https://haleconnect.com/ows/services/org.1001.0f067959-b465-4a54-9a13-d2502d76b156_wfs/org.1001.0f914212-ed22-4e4f-aeb2-76d0e507cbe4?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=plu:OfficialDocumentation&COUNT=10&OUTPUTFORMAT=application%2Fgeo%2Bjson",
+          "sample_title": "Waldburg (haleconnect.com): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Govconnect",
+          "display": "Govconnect",
+          "host": "inspire.govconnect.de",
+          "endpoints_in_bucket": 3398,
+          "endpoints_in_pack": 3440,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "xml",
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://inspire.govconnect.de/ows/services/org.100.1cba2b5c-8d62-49c1-9d64-9974a7bfb45b_wfs/org.100.851d65f6-81c2-44e8-ac3a-f0886dc64e6e?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=ogr:kdo_planung&COUNT=10&OUTPUTFORMAT=application%2Fgeo%2Bjson",
+          "sample_title": "Gemeinde Hatten (inspire.govconnect.de): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "DOV Flanders subsoil / water",
+          "display": "DOV Flanders subsoil / water",
+          "host": "www.dov.vlaanderen.be",
+          "endpoints_in_bucket": 2437,
+          "endpoints_in_pack": 2494,
+          "country_codes": [
+            "BE"
+          ],
+          "formats": [
+            "xml",
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://www.dov.vlaanderen.be/geoserver-inspire/exposedelement/wfs?SERVICE=WFS&version=2.0.0&request=GetFeature&count=1&typeName=ExposedElement",
+          "sample_title": "INSPIRE harmonized - Erosion sensitivity of the Flemish municipalities",
+          "sample_format": "xml",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Stadt Zürich Open Data",
+          "display": "Stadt Zürich Open Data",
+          "host": "www.ogd.stadt-zuerich.ch",
+          "endpoints_in_bucket": 1149,
+          "endpoints_in_pack": 1167,
+          "country_codes": [
+            "CH"
+          ],
+          "formats": [
+            "geojson",
+            "xml"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/3D_Dachmodell_LoD2_Jahresstand_2011?SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=lod2_geb3d&MAXFEATURES=10&OUTPUTFORMAT=application%2Fvnd.geo%2Bjson",
+          "sample_title": "www.ogd.stadt-zuerich.ch: WFS 1.1.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Berlin Government Open Data Portal",
+          "display": "Berlin Government Open Data Portal",
+          "host": "gdi.berlin.de",
+          "endpoints_in_bucket": 1023,
+          "endpoints_in_pack": 1197,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "geojson",
+            "xml"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://gdi.berlin.de/services/wfs/abstell_mikromob?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=abstell_mikromob:abstell_mikromob&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen Berlin (gdi.berlin.de): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Liguria",
+          "display": "Liguria",
+          "host": "geoservizi.regione.liguria.it",
+          "endpoints_in_bucket": 1011,
+          "endpoints_in_pack": 1074,
+          "country_codes": [
+            "IT"
+          ],
+          "formats": [
+            "geojson",
+            "xml"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://geoservizi.regione.liguria.it/geoserver/ows?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=M1015:L2451&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "The ancient geographes INC (geoservizi.regione.liguria.it): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Lounaistieto",
+          "display": "Lounaistieto",
+          "host": "geoserver.lounaistieto.fi",
+          "endpoints_in_bucket": 961,
+          "endpoints_in_pack": 1011,
+          "country_codes": [
+            "FI"
+          ],
+          "formats": [
+            "geojson",
+            "xml"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://geoserver.lounaistieto.fi/geoserver/ows?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=HAME:HAME_vsl_aluevaraukset&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "Varsinais-Suomen liitto (geoserver.lounaistieto.fi): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        }
+      ]
+    },
+    {
+      "id": "grounding",
+      "name": "Grounding and data pipelines",
+      "title": "Boundaries, place names, postal codes and land-use tables for scheduled loads",
+      "filter": "host in (download.geonames.org, www.geoboundaries.org) OR format in (csv, zip, geojson)",
+      "endpoints": 69099,
+      "notes": [],
+      "criteria": "Services in this pack with the most endpoints that match this bucket and passed a data call. Ties go to the service with more country codes, then by name. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Sample preference in this bucket: host in (download.geonames.org, www.geoboundaries.org) OR title matches /boundar|όρι|address|parcel|cadast|land use|χρήσεις γης|γεωτεμ|περιφέρει/i. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "ArcGIS Online: Non",
+          "display": "ArcGIS Online: Non",
+          "host": "open-geography-portalx-ons.hub.arcgis.com",
+          "endpoints_in_bucket": 2102,
+          "endpoints_in_pack": 3449,
+          "country_codes": [
+            "GB"
+          ],
+          "formats": [
+            "csv",
+            "zip",
+            "geojson"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://open-geography-portalx-ons.hub.arcgis.com/api/download/v1/items/00a5aa3aa5a64183bd88c848ab9858d0/csv?layers=0",
+          "sample_title": "International Territorial Level 3 (January 2021) Boundaries UK BFE (V4) - CSV",
+          "sample_format": "csv",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Nyu",
+          "display": "Nyu",
+          "host": "maps-public.geo.nyu.edu",
+          "endpoints_in_bucket": 940,
+          "endpoints_in_pack": 996,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 2,
+          "sample_url": "https://maps-public.geo.nyu.edu/geoserver/ows?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=sdr:nyu_2451_33987&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "maps-public.geo.nyu.edu: WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "DOV Flanders subsoil / water",
+          "display": "DOV Flanders subsoil / water",
+          "host": "www.dov.vlaanderen.be",
+          "endpoints_in_bucket": 937,
+          "endpoints_in_pack": 2494,
+          "country_codes": [
+            "BE"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://www.dov.vlaanderen.be/geoserver/ogc/features/v1/collections/delfstoffen:boringen_zand_grind/items?f=application%2Fjson&limit=10",
+          "sample_title": "www.dov.vlaanderen.be: OGC API Features",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Lounaistieto",
+          "display": "Lounaistieto",
+          "host": "geoserver.lounaistieto.fi",
+          "endpoints_in_bucket": 936,
+          "endpoints_in_pack": 1011,
+          "country_codes": [
+            "FI"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://geoserver.lounaistieto.fi/geoserver/ows?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=HAME:HAME_vsl_aluevaraukset&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "Varsinais-Suomen liitto (geoserver.lounaistieto.fi): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Govconnect",
+          "display": "Govconnect",
+          "host": "inspire.govconnect.de",
+          "endpoints_in_bucket": 929,
+          "endpoints_in_pack": 3440,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://inspire.govconnect.de/ows/services/org.100.1cba2b5c-8d62-49c1-9d64-9974a7bfb45b_wfs/org.100.851d65f6-81c2-44e8-ac3a-f0886dc64e6e?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=ogr:kdo_planung&COUNT=10&OUTPUTFORMAT=application%2Fgeo%2Bjson",
+          "sample_title": "Gemeinde Hatten (inspire.govconnect.de): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Berlin Government Open Data Portal",
+          "display": "Berlin Government Open Data Portal",
+          "host": "gdi.berlin.de",
+          "endpoints_in_bucket": 925,
+          "endpoints_in_pack": 1197,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://gdi.berlin.de/services/wfs/abstell_mikromob?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=abstell_mikromob:abstell_mikromob&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen Berlin (gdi.berlin.de): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Csiro",
+          "display": "Csiro",
+          "host": "www.cmar.csiro.au",
+          "endpoints_in_bucket": 908,
+          "endpoints_in_pack": 979,
+          "country_codes": [
+            "AU"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 2,
+          "sample_url": "https://www.cmar.csiro.au/geoserver/ows?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=AusSeabed:BF2018_V01_Hope_Channel_1m_final_BBOX&COUNT=10&OUTPUTFORMAT=application%2Fjson",
+          "sample_title": "CSIRO National Collections & Marine Infrastructure (www.cmar.csiro.au): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Komm",
+          "display": "Komm",
+          "host": "geodienste.komm.one",
+          "endpoints_in_bucket": 905,
+          "endpoints_in_pack": 21892,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://geodienste.komm.one/ows/services/org.104.09cb9500-5f52-4d4f-a58e-10b0efe1cfc6_wfs/org.104.21879498-2b4a-43cc-a6e8-b5bcc930c558?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=plu:OfficialDocumentation&COUNT=10&OUTPUTFORMAT=application%2Fgeo%2Bjson",
+          "sample_title": "Gemeinde Großbettlingen (geodienste.komm.one): WFS 2.0.0",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        }
+      ]
+    },
+    {
+      "id": "evals",
+      "name": "Evals and testing",
+      "title": "Layer queries, map services and files to test a map tool",
+      "filter": "the whole pack",
+      "endpoints": 387310,
+      "notes": [],
+      "criteria": "Services in this pack that returned the most different formats, then the most endpoints that passed a data call, then by name: a mix of response shapes to test parsers and tool calls. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "ArcGIS Online: Non",
+          "display": "ArcGIS Online: Non",
+          "host": "open-geography-portalx-ons.hub.arcgis.com",
+          "endpoints_in_bucket": 3449,
+          "endpoints_in_pack": 3449,
+          "country_codes": [
+            "GB"
+          ],
+          "formats": [
+            "json",
+            "csv",
+            "zip",
+            "geojson",
+            "xml"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://open-geography-portalx-ons.hub.arcgis.com/api/download/v1/items/00a5aa3aa5a64183bd88c848ab9858d0/geojson?layers=0",
+          "sample_title": "International Territorial Level 3 (January 2021) Boundaries UK BFE (V4) - GeoJSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "geodienste.hamburg.de",
+          "display": "geodienste.hamburg.de",
+          "host": "geodienste.hamburg.de",
+          "endpoints_in_bucket": 1269,
+          "endpoints_in_pack": 1269,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "xml",
+            "geojson",
+            "json",
+            "zip",
+            "csv"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://geodienste.hamburg.de/HH_WFS_Abwasserentsorgungsgebiet_Hamburg_Wasser?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=app:abwasserentsorgungsgebiet&COUNT=10&OUTPUTFORMAT=application%2Fgeo%2Bjson",
+          "sample_title": "LGV Hamburg (geodienste.hamburg.de): WFS 2.0.0",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Freiburg",
+          "display": "Freiburg",
+          "host": "geoportal.freiburg.de",
+          "endpoints_in_bucket": 364,
+          "endpoints_in_pack": 364,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "geojson",
+            "xml",
+            "zip",
+            "json",
+            "csv"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://geoportal.freiburg.de/wfs/abi_gliederung/abi_gliederung?REQUEST=GetFeature&SRSNAME=EPSG:25832&SERVICE=WFS&VERSION=2.0.0&TYPENAMES=baubloecke&OUTPUTFORMAT=geojson",
+          "sample_title": "Baublöcke der Stadt Freiburg i. Br.",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "geo.sv.rostock.de",
+          "display": "geo.sv.rostock.de",
+          "host": "geo.sv.rostock.de",
+          "endpoints_in_bucket": 357,
+          "endpoints_in_pack": 357,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "xml",
+            "csv",
+            "geojson",
+            "json",
+            "txt"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://geo.sv.rostock.de/download/opendata/adressen/adressen.json",
+          "sample_title": "addresses",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "data.gov.au",
+          "display": "data.gov.au",
+          "host": "datahub.moretonbay.qld.gov.au",
+          "endpoints_in_bucket": 252,
+          "endpoints_in_pack": 252,
+          "country_codes": [
+            "AU"
+          ],
+          "formats": [
+            "json",
+            "csv",
+            "xml",
+            "geojson",
+            "zip"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://datahub.moretonbay.qld.gov.au/api/download/v1/items/2fa171d648414bc3834c74f0def35069/csv?layers=10",
+          "sample_title": "Overlay Maps:OC08 Koala Conservation - CSV",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Wien",
+          "display": "Wien",
+          "host": "data.wien.gv.at",
+          "endpoints_in_bucket": 154,
+          "endpoints_in_pack": 154,
+          "country_codes": [
+            "AT"
+          ],
+          "formats": [
+            "csv",
+            "xml",
+            "json",
+            "geojson",
+            "zip"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&srsName=EPSG:4326&outputFormat=json&typeName=ogdwien:GEBIETSTYPENOGD",
+          "sample_title": "data.wien.gv.at: Area types 2021 Vienna / GT 2021, JSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Data Driven Detroit",
+          "display": "Data Driven Detroit",
+          "host": "portal.datadrivendetroit.org",
+          "endpoints_in_bucket": 136,
+          "endpoints_in_pack": 136,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "csv",
+            "xml",
+            "json",
+            "geojson",
+            "zip"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://portal.datadrivendetroit.org/api/download/v1/items/00343406b1164a4690f23c307c25d679/geojson?layers=3",
+          "sample_title": "OC Parcel History - GeoJSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "data.gis.ny.gov",
+          "display": "data.gis.ny.gov",
+          "host": "data.gis.ny.gov",
+          "endpoints_in_bucket": 124,
+          "endpoints_in_pack": 124,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json",
+            "csv",
+            "zip",
+            "xml",
+            "geojson"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://data.gis.ny.gov/api/download/v1/items/074d3456e5664f5e85d0fb251d05cc5b/geojson?layers=0",
+          "sample_title": "State - GeoJSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        }
+      ]
+    }
+  ]
+}

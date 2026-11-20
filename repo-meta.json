@@ -1,0 +1,39 @@
+{
+  "name": "380k-maps-gis-apis-for-agents",
+  "old_name": "maps-gis-api-endpoints",
+  "new_name": "380k-maps-gis-apis-for-agents",
+  "url": "https://github.com/agentpopulation/380k-maps-gis-apis-for-agents",
+  "description": "387,310 map and GIS API endpoints that passed a keyless data call. For agent tools, apps, pipelines and evals. CSV, CC BY 4.0.",
+  "homepage": "https://agentpopulation.com/apis",
+  "topics": [
+    "api-endpoints",
+    "open-data",
+    "dataset",
+    "ai-agents",
+    "agent-tools",
+    "agentpopulation",
+    "gis",
+    "geospatial",
+    "maps",
+    "map-layers",
+    "wms",
+    "wfs",
+    "arcgis",
+    "geojson",
+    "administrative-boundaries",
+    "land-use",
+    "gazetteer",
+    "postal-codes",
+    "open-geodata"
+  ],
+  "release": {
+    "tag": "snapshot-2026-11-15",
+    "title": "Maps and GIS API endpoints · snapshot 15 Nov 2026 · 387,310 endpoints",
+    "notesFile": "RELEASE_NOTES.md",
+    "manifest": "../_release/maps-gis-api-endpoints/release.json",
+    "assets": [
+      "../_release/maps-gis-api-endpoints/Maps_GIS_API_Endpoints_AgentPopulation_Snapshot_2026-11-15.csv.gz",
+      "../_release/maps-gis-api-endpoints/SHA256SUMS.txt"
+    ]
+  }
+}
